@@ -1,4 +1,4 @@
-package com.unit16.tuples;
+package com.unit16.datastructures;
 
 import com.google.common.base.MoreObjects;
 
