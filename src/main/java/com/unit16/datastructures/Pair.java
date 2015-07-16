@@ -45,5 +45,17 @@ public interface Pair<A,B> {
         }
                
     }
+    
+    public static class Uniform<A> extends I<A,A> {
+
+		public Uniform(A a, A b) {
+			super(a, b);
+		}
+		
+        public static <A> Pair.Uniform<A> uniform(A a, A b) {
+            return new Pair.Uniform<A>(a, b);
+        }
+    	
+    }
 	
 }
