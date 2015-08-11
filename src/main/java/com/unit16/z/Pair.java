@@ -1,4 +1,4 @@
-package com.unit16.datastructures;
+package com.unit16.z;
 
 import com.google.common.base.MoreObjects;
 

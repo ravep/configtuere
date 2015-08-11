@@ -2,20 +2,17 @@ package com.unit16.r.onion;
 
 import static org.junit.Assert.assertEquals;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
-
-import junit.framework.Assert;
 
 import org.joda.time.DateTime;
 import org.junit.Test;
 import org.slf4j.LoggerFactory;
 
-import com.unit16.datastructures.Pair;
 import com.unit16.r.onion.messaging.MessageScheme;
 import com.unit16.r.onion.messaging.Source;
 import com.unit16.r.onion.util.Clock;
+import com.unit16.z.Pair;
 
 public class TestScheme {
 	

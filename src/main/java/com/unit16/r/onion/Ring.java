@@ -2,8 +2,6 @@ package com.unit16.r.onion;
 
 import java.util.ArrayDeque;
 
-import org.slf4j.LoggerFactory;
-
 public interface Ring {
 
 	void schedule(Component c);

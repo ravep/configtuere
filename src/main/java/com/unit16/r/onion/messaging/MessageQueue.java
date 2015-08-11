@@ -2,10 +2,10 @@ package com.unit16.r.onion.messaging;
 
 import java.util.concurrent.ConcurrentLinkedQueue;
 
-import com.unit16.datastructures.Pair;
 import com.unit16.r.onion.Component;
 import com.unit16.r.onion.Ring;
 import com.unit16.r.onion.util.Yield;
+import com.unit16.z.Pair;
 
 /** Message Queue used to wire up Source<T> with targets over thread boundaries 
  *

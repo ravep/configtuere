@@ -66,6 +66,7 @@ public class Config {
 				SimpleText.read(c, s);
 			}
 		}
+		c.initDefaults();
 		// validate
 		StringBuilder b = new StringBuilder();
 		if(c.validate(b)) {
@@ -333,6 +334,23 @@ public class Config {
 			return loaded;
 		}
 
+		public void initDefaults() {
+			for(Dependency dep : group.relations) {
+				log.debug("checking " + dep.group().name + " " + dep.flag());
+				if(dep.flag().required) {					
+					if(numSub(dep.group()) == 0) {
+						if(dep.group().fullyOptional()) {
+							MyGroupData g;
+							this.subs.add(g = new MyGroupData(dep.group()));
+						}
+					}
+				}
+			}
+			for(MyGroupData g : subs) {
+				g.initDefaults();
+			}
+		}
+
 	}
 	
 	public interface Walker {
@@ -362,6 +380,12 @@ public class Config {
 	public Collection<CData<?>> data() {
 		return root.data;
 	}
+	
+
+	public void initDefaults() {
+		root.initDefaults();
+	}
+
 		
 	public <T> CData<T> getData(C<T> type) {
 		CData<T> r = root.findDataFor(type);

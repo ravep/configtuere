@@ -172,6 +172,20 @@ public abstract class Group {
 		}
 		
 	};
+
+	boolean fullyOptional() {
+		for(C<?> v : values) {
+			if(v.required) {
+				return false;
+			}
+		}
+		for(Dependency d : relations) {
+			if(d.flag().required) {
+				return false;
+			}
+		}
+		return true;
+	}
 	
 	
 	

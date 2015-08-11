@@ -9,13 +9,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.common.base.Preconditions;
-import com.unit16.datastructures.Pair;
 import com.unit16.r.onion.messaging.Dispatcher;
 import com.unit16.r.onion.messaging.MessageQueue;
 import com.unit16.r.onion.util.Clock;
 import com.unit16.r.onion.util.RealTimeClock;
 import com.unit16.r.onion.util.SimulationClock;
 import com.unit16.r.onion.util.Yield;
+import com.unit16.z.Pair;
 
 public interface Peeler extends MessageQueue {
 	
@@ -298,6 +298,10 @@ public interface Peeler extends MessageQueue {
 		@Override
 		public void incoming(Dispatcher d, Object msg) {
 			incoming.add(Pair.I.pair(d, msg));
+		}
+
+		public void join() throws InterruptedException {
+			thread.join();
 		}
 		
 	}
