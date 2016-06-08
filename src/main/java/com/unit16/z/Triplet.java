@@ -8,6 +8,24 @@ public interface Triplet<A,B,C> {
 	public B snd();
 	public C trd();
 	
+	public static interface Uniform<T> extends Triplet<T,T,T> {
+		
+		public static class I<T> extends Triplet.I<T, T, T> implements Uniform<T> {
+
+			public I(T a, T b, T c) {
+				super(a, b, c);
+			}
+			
+	        public static <A> Triplet.Uniform<A> uniform(A a, A b, A c) {
+	        	return new Triplet.Uniform.I<A>(a, b, c);
+	        }
+	          			
+		}
+		
+		
+	}
+	
+	
     public static class I<A,B,C> extends Pair.I<A, B> implements Triplet<A,B,C> {
 
         public C trd;
@@ -50,7 +68,8 @@ public interface Triplet<A,B,C> {
         public static <A, B, C> Triplet.I<A, B, C> triplet(A a, B b, C c) {
             return new Triplet.I<A, B, C>(a, b, c);
         }
-               
+        
+    
     }
     
 	
